@@ -13,8 +13,6 @@ h1.titleheading {
   color: white;
 }
 
-/* Gradient transparent - color - transparent */
-
 hr.style-two {
   border: 0;
   height: 1px;
@@ -26,6 +24,58 @@ h2.heading {
   width: 100%;
   font-size: 1em;
   font-family: 'Noto Serif KR', sans-serif;
+}
+
+.wanttoreadcontainer,
+.readsectioncontainer,
+.currentlyreadingcontainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  height: 80%;
+}
+
+#main {
+  width: 100%;
+  height: 1215px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: center;
+}
+
+.wanttoreadcontainer,
+.readsectioncontainer,
+.currentlyreadingcontainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  height: 80%;
+}
+
+.read {
+  order: 1;
+  width: 100%;
+  height: 33.5%;
+  margin: 0;
+  background: #E3E7E8;
+}
+
+.wantToRead {
+  order: 2;
+  width: 100%;
+  height: 33.5%;
+  margin: 0;
+  background: #E3E7E8;
+}
+
+.currentlyReading {
+  order: 3;
+  width: 100%;
+  height: 33.5%;
+  margin: 0;
+  background: #E3E7E8;
 }
 
 /*-----Search css-----*/

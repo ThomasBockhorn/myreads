@@ -7,7 +7,7 @@ class main extends Component {
   state = {};
   render() {
     return (
-      <div>
+      <div id="main">
         <WantToRead />
         <CurrentlyReading />
         <Read />

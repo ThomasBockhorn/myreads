@@ -5,6 +5,7 @@ function read() {
     <div className="read">
       <h2 className="heading">Read</h2>
       <hr className="style-two" />
+      <div className="readsectioncontainer" />
     </div>
   );
 }

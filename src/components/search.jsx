@@ -33,7 +33,8 @@ class search extends Component {
 
   //This method will change the shelf location of the book
   changeShelf = book => {
-    console.log(book.target.id);
+    const wantToRead = "wantToRead";
+    BooksAPI.update(book.target.id, wantToRead);
   };
 
   //This will delete the selected book
