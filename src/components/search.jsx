@@ -31,10 +31,11 @@ class search extends Component {
       });
   }
 
-  //This method will change the shelf location of the book
+  //This method will change the shelf location of the book to the default "wantToRead"
   changeShelf = book => {
-    const wantToRead = "wantToRead";
-    BooksAPI.update(book.target.id, wantToRead);
+    BooksAPI.get(book.target.id).then(item =>
+      BooksAPI.update(item, "wantToRead")
+    );
   };
 
   //This will delete the selected book

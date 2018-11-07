@@ -27,12 +27,11 @@ h2.heading {
 }
 
 .wanttoreadcontainer,
-.readsectioncontainer,
+.readcontainer,
 .currentlyreadingcontainer {
   display: flex;
   flex-wrap: wrap;
-  margin: auto;
-  height: 80%;
+
 }
 
 #main {
@@ -43,15 +42,6 @@ h2.heading {
   flex-wrap: wrap;
   justify-content: flex-start;
   align-content: center;
-}
-
-.wanttoreadcontainer,
-.readsectioncontainer,
-.currentlyreadingcontainer {
-  display: flex;
-  flex-wrap: wrap;
-  margin: auto;
-  height: 80%;
 }
 
 .read {
@@ -78,6 +68,23 @@ h2.heading {
   background: #E3E7E8;
 }
 
+img {
+  margin: 1em;
+}
+
+#book {
+  display: inline-block;
+  max-width: 10%;
+}
+
+.menu {
+  display: none;
+}
+
+.menuDisplay:hover .menu {
+  display: block;
+}
+
 /*-----Search css-----*/
 #searchfield {
   width: 100%;
@@ -87,9 +94,4 @@ h2.heading {
   background: #E3E7E8;
   padding: 5%;
   align-content: flex-start;
-}
-
-#book {
-  margin: 1em;
-  height: 7em;
 }
