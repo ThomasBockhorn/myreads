@@ -31,7 +31,7 @@ h2.heading {
 .currentlyreadingcontainer {
   display: flex;
   flex-wrap: wrap;
-
+  justify-content: flex-start;
 }
 
 #main {
@@ -82,7 +82,12 @@ img {
 }
 
 .menuDisplay:hover .menu {
-  display: block;
+  display: inline-block;
+  width: 100%;
+}
+
+button {
+  width: 100%;
 }
 
 /*-----Search css-----*/

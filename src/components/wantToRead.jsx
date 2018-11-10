@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import * as BooksAPI from "../BooksAPI";
 
 class wantToRead extends Component {
   //This creates books based on the location of the books
@@ -17,10 +16,34 @@ class wantToRead extends Component {
               alt={item.authors}
             />
             <form id="locationControl" className="menu">
-              <button type="button">Want To Read</button>
-              <button type="button">Currently Reading</button>
-              <button type="button">Read</button>
-              <button type="button">None</button>
+              <button
+                id={item.id}
+                type="button"
+                onClick={e => this.props.moveBook(e)}
+              >
+                Want To Read
+              </button>
+              <button
+                id={item.id}
+                type="button"
+                onClick={e => this.props.moveBook(e)}
+              >
+                Currently Reading
+              </button>
+              <button
+                id={item.id}
+                type="button"
+                onClick={e => this.props.moveBook(e)}
+              >
+                Read
+              </button>
+              <button
+                id={item.id}
+                type="button"
+                onClick={e => this.props.moveBook(e)}
+              >
+                None
+              </button>
             </form>
           </div>
         );
