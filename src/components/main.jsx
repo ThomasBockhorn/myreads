@@ -14,29 +14,43 @@ class main extends Component {
   }
 
   //This will load all the books from BooksAPI
-  componentDidMount() {
+  componentDidMount = () => {
     BooksAPI.getAll()
       .then(book => {
         this.state.books = book;
         this.setState(this.state.books);
       })
       .catch(error => console.log(error));
-  }
+  };
+
+  //This will update the books from BookAPI
+  componentWillUpdate = () => {
+    BooksAPI.getAll()
+      .then(book => {
+        this.state.books = book;
+        this.setState(this.state.books);
+      })
+      .catch(error => console.log(error));
+  };
 
   //This method will move the book to other shelves
   moveBook = e => {
     if (e.target.innerText === "Want To Read") {
-      console.log("This works");
       BooksAPI.get(e.target.id).then(book => {
         BooksAPI.update(book, "wantToRead");
       });
     } else if (e.target.innerText === "Currently Reading") {
-      console.log("This works");
       BooksAPI.get(e.target.id).then(book => {
         BooksAPI.update(book, "currentlyReading");
       });
-    } else if (e.target.innerText === "read") {
-      console.log("This works");
+    } else if (e.target.innerText === "Read") {
+      BooksAPI.get(e.target.id).then(book => {
+        BooksAPI.update(book, "read");
+      });
+    } else {
+      BooksAPI.get(e.target.id).then(book => {
+        BooksAPI.update(book, "none");
+      });
     }
   };
 
