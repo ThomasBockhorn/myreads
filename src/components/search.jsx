@@ -32,10 +32,20 @@ class search extends Component {
   }
 
   //This method will change the shelf location of the book to the default "wantToRead"
-  changeShelf = book => {
-    BooksAPI.get(book.target.id).then(item =>
-      BooksAPI.update(item, "wantToRead")
-    );
+  changeShelf = e => {
+    if (e.target.innerText === "Want To Read") {
+      BooksAPI.get(e.target.id).then(book => {
+        BooksAPI.update(book, "wantToRead");
+      });
+    } else if (e.target.innerText === "Currently Reading") {
+      BooksAPI.get(e.target.id).then(book => {
+        BooksAPI.update(book, "currentlyReading");
+      });
+    } else if (e.target.innerText === "Read") {
+      BooksAPI.get(e.target.id).then(book => {
+        BooksAPI.update(book, "read");
+      });
+    }
   };
 
   //This will delete the selected book
@@ -52,15 +62,9 @@ class search extends Component {
   searchDisplay = () => {
     if (this.state.books.length !== 0) {
       return this.state.books.map(item => {
-        if (!!item.imageLinks) {
+        if (item.imageLinks) {
           return (
-            <div
-              id="book"
-              key={item.id}
-              onClick={e => {
-                this.deleteSelected(e);
-              }}
-            >
+            <div id="book" key={item.id} className="menuDisplay">
               <img
                 id={item.id}
                 src={item.imageLinks.smallThumbnail}
@@ -68,6 +72,30 @@ class search extends Component {
                 width="80"
                 alt={item.authors}
               />
+
+              <form id="locationControl" className="menu">
+                <button
+                  id={item.id}
+                  type="button"
+                  onClick={e => this.deleteSelected(e)}
+                >
+                  Want To Read
+                </button>
+                <button
+                  id={item.id}
+                  type="button"
+                  onClick={e => this.deleteSelected(e)}
+                >
+                  Currently Reading
+                </button>
+                <button
+                  id={item.id}
+                  type="button"
+                  onClick={e => this.deleteSelected(e)}
+                >
+                  Read
+                </button>
+              </form>
             </div>
           );
         }

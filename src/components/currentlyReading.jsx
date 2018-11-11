@@ -6,7 +6,7 @@ class currentlyReading extends Component {
     return this.props.bookList.map(item => {
       if (item.shelf === "currentlyReading") {
         return (
-          <div id={item.id} id="book" className="menuDisplay">
+          <div key={item.id} id={item.id} id="book" className="menuDisplay">
             <img
               id={item.id}
               src={item.imageLinks.smallThumbnail}
