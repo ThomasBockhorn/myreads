@@ -51,12 +51,15 @@ class main extends Component {
           book.shelf = "read";
           this.setState();
         }
+      } else {
+        if (book.id === e.target.id) {
+          book.shelf = "none";
+          this.setState();
+        }
       }
 
-      //This will update with the server
-      BooksAPI.get(e.target.id).then(item => {
-        BooksAPI.update(item, book.shelf);
-      });
+      //Updates server
+      BooksAPI.get(book.id).then(item => BooksAPI.update(item, book.shelf));
     });
   };
 
