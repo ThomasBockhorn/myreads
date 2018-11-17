@@ -38,7 +38,11 @@ class header extends Component {
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <form className="form-inline my-2 my-lg-0" onSubmit={this.submit}>
+          <form
+            className="form-inline my-2 my-lg-0"
+            onSubmit={this.submit}
+            onChange={this.handleChange}
+          >
             <input
               className="form-control mr-sm-2"
               type="search"
@@ -69,8 +73,7 @@ class header extends Component {
             <li className="breadcrumb-item">
               <Link
                 to={{
-                  pathname: "/search",
-                  search: "?search=" + this.state.input
+                  pathname: "/search"
                 }}
               >
                 Search

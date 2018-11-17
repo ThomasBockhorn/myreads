@@ -15,6 +15,10 @@ class read extends Component {
               location={item.location}
               alt={item.authors}
             />
+            <div id="authorInfo">
+              <div>{item.title}</div>
+              <div>{item.authors}</div>
+            </div>
             <form id="locationControl" className="menu">
               <button
                 id={item.id}
@@ -34,6 +38,7 @@ class read extends Component {
                 id={item.id}
                 type="button"
                 onClick={e => this.props.moveBook(e)}
+                disabled
               >
                 Read
               </button>

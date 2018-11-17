@@ -15,6 +15,10 @@ class currentlyReading extends Component {
               location={item.location}
               alt={item.authors}
             />
+            <div id="authorInfo">
+              <div>{item.title}</div>
+              <div>{item.authors}</div>
+            </div>
             <form id="locationControl" className="menu">
               <button
                 id={item.id}
@@ -27,6 +31,7 @@ class currentlyReading extends Component {
                 id={item.id}
                 type="button"
                 onClick={e => this.props.moveBook(e)}
+                disabled
               >
                 Currently Reading
               </button>

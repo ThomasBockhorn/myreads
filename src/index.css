@@ -31,7 +31,7 @@ h2.heading {
 .currentlyreadingcontainer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 #main {
@@ -88,6 +88,17 @@ img {
 
 button {
   width: 100%;
+}
+
+#authorInfo {
+  font-size: .5em;
+}
+
+button:disabled,
+button[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
 }
 
 /*-----Search css-----*/

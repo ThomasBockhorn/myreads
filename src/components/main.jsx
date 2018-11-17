@@ -35,23 +35,29 @@ class main extends Component {
 
   //This method will move the book to other shelves
   moveBook = e => {
-    if (e.target.innerText === "Want To Read") {
-      BooksAPI.get(e.target.id).then(book => {
-        BooksAPI.update(book, "wantToRead");
+    this.state.books.map(book => {
+      if (e.target.innerText === "Want To Read") {
+        if (book.id === e.target.id) {
+          book.shelf = "wantToRead";
+          this.setState();
+        }
+      } else if (e.target.innerText === "Currently Reading") {
+        if (book.id === e.target.id) {
+          book.shelf = "currentlyReading";
+          this.setState();
+        }
+      } else if (e.target.innerText === "Read") {
+        if (book.id === e.target.id) {
+          book.shelf = "read";
+          this.setState();
+        }
+      }
+
+      //This will update with the server
+      BooksAPI.get(e.target.id).then(item => {
+        BooksAPI.update(item, book.shelf);
       });
-    } else if (e.target.innerText === "Currently Reading") {
-      BooksAPI.get(e.target.id).then(book => {
-        BooksAPI.update(book, "currentlyReading");
-      });
-    } else if (e.target.innerText === "Read") {
-      BooksAPI.get(e.target.id).then(book => {
-        BooksAPI.update(book, "read");
-      });
-    } else {
-      BooksAPI.get(e.target.id).then(book => {
-        BooksAPI.update(book, "none");
-      });
-    }
+    });
   };
 
   render() {
