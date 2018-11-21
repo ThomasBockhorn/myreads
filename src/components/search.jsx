@@ -12,23 +12,25 @@ class search extends Component {
   }
 
   //This will load the books with the search query
-  componentDidMount() {
+  componentWillMount() {
     const parsed = queryString.parse(this.props.location.search);
     const searchTerm = parsed.search;
-    BooksAPI.search(searchTerm)
-      .then(result => {
-        if (result.error !== "empty query") {
+    if (searchTerm !== "") {
+      BooksAPI.search(searchTerm)
+        .then(result => {
+          if (result.error !== "empty query") {
+            this.setState({
+              isLoaded: true,
+              books: result
+            });
+          }
+        })
+        .catch(result => {
           this.setState({
-            isLoaded: true,
-            books: result
+            isLoaded: false
           });
-        }
-      })
-      .catch(result => {
-        this.setState({
-          isLoaded: false
         });
-      });
+    }
   }
 
   //This method will change the shelf location of the book to the default "wantToRead"

@@ -70,15 +70,6 @@ class header extends Component {
             <li className="breadcrumb-item">
               <Link to={"/"}> Home</Link>
             </li>
-            <li className="breadcrumb-item">
-              <Link
-                to={{
-                  pathname: "/search"
-                }}
-              >
-                Search
-              </Link>
-            </li>
           </ol>
         </nav>
       </nav>
